@@ -28,21 +28,22 @@
   __/api/newsletter__ -POST 
   trigger the server to send push notification to subscribers
   
+##### Create vapid keys
+`npm install web-push -g` and run `web-push generate-vapid-keys --json` from the result extract the `publicKey` and `privateKey`
+
+#####  Pull from Docker hub 
+to pull run 
+`docker pull germanvs/newsletter-server`
+and run server with: 
+`docker run -p 9000:9000  --env WEB_PUSH_PUBLIC_KEY={publicKey} --env WEB_PUSH_PRIVATE_KEY={privateKey} -d germanvs/newsletter-server`
+
+##### Alternatively create your image 
  `docker build -t web-app .`
- 
- ##### Create vapid keys
- `npm install web-push -g` and run `web-push generate-vapid-keys --json` from the result extract the `publicKey` and `privateKey`
-  
- Run server:
- `docker run -p 9000:9000  --env WEB_PUSH_PUBLIC_KEY={privateKey} --env WEB_PUSH_PRIVATE_KEY={publicKey} -d web-app` 
+ run server:
+ `docker run -p 9000:9000  --env WEB_PUSH_PUBLIC_KEY={publicKey} --env WEB_PUSH_PRIVATE_KEY={privateKey} -d web-app` 
 
 
 #### client apps
 For a client app to become a subscriber of the server so it receives push notifications it needs to provide the previously created
 __publicKey__ to the PUSH API - PushManager.subscribe() method as described in: https://developer.mozilla.org/en-US/docs/Web/API/PushManager/subscribe
 
-#### Alternatively pull from Docker hub
-to pull run 
-`docker pull germanvs/newsletter-server`
-and run server with: 
-`docker run -p 9000:9000  --env WEB_PUSH_PUBLIC_KEY={privateKey} --env WEB_PUSH_PRIVATE_KEY={publicKey} -d germanvs/newsletter-server`
