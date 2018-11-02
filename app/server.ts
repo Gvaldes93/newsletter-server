@@ -1,4 +1,6 @@
-import {send} from 'q';
+// import {send} from 'q';
+
+import {Server} from "http";
 
 const express = require('express');
 import {Application} from 'express';
@@ -37,7 +39,7 @@ app.route('/api/newsletter')
   .post(sendNewsletter);
 
 // launch an HTTP Server
-const httpServer = app.listen(9000, () => {
-  console.log('HTTP Server running at http://localhost:' + httpServer.address().port);
+app.listen(9000, () => {
+  console.log('HTTP Server running at http://localhost:9000');
 });
 

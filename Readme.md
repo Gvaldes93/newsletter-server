@@ -26,12 +26,16 @@
   post a push subscription object (https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription)
   
   __/api/newsletter__ -POST 
-  trigger the server to send push notification to subscribers
+  triggers the server to send push notification to subscribers
   
 ##### Create vapid keys
 `npm install web-push -g` and run `web-push generate-vapid-keys --json` from the result extract the `publicKey` and `privateKey`
 
-#####  Pull from Docker hub 
+#### Run locally with npm 
+create environment variables `WEB_PUSH_PUBLIC_KEY` and `WEB_PUSH_PRIVATE_KEY` with results of previous step.
+Now `npm i` and then`npm run build:start`
+
+#####  Run from Docker
 to pull run 
 `docker pull germanvs/newsletter-server`
 and run server with: 

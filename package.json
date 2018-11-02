@@ -1,0 +1,28 @@
+{
+  "name": "newsletter-server",
+  "version": "1.0.0",
+  "description": "__/api/newsletters__ - GET   returns an object:    ```    {       1: {         'id': 1,         'title': 'Housing',         'complete': false       },       2: {         'id': 2,         'title': 'Sports',         'complete': false       },       3: {         'id': 3,         'title': 'Locals',         'complete': false       }   }   ```",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "build:run": "npm run tsc && node ./build/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gvaldes93/newsletter-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gvaldes93/newsletter-server/issues"
+  },
+  "homepage": "https://github.com/Gvaldes93/newsletter-server#readme",
+  "dependencies": {
+    "@types/es6-shim": "^0.31.38",
+    "@types/express": "^4.16.0",
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "typescript": "^3.1.6",
+    "web-push": "^3.3.3"
+  }
+}

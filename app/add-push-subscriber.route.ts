@@ -1,7 +1,7 @@
 // @ts-ignore
 const USER_SUBSCRIPTIONS = require('./in-memory-db');
 
-module.exports = function addPushsubscriber(req, res) {
+module.exports = function addPushsubscriber(req: any, res: any) {
 
   const sub = req.body;
   console.log('Received Subscription on the server:', sub);

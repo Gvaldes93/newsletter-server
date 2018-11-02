@@ -2,9 +2,9 @@
 const USER_SUBSCRIPTIONS = require('./in-memory-db');
 
 const webpush = require('web-push');
-const Promise  = require('es6-promise');
+// const Promise  = require('es6-promise');
 
-module.exports = function sendNewsletter(req, res) {
+module.exports = function sendNewsletter(req: any, res: any) {
 
   console.log('Total subscriptions', USER_SUBSCRIPTIONS.length);
 
@@ -27,7 +27,7 @@ module.exports = function sendNewsletter(req, res) {
   };
 
 
-  Promise.all(USER_SUBSCRIPTIONS.map(sub => {
+  Promise.all(USER_SUBSCRIPTIONS.map((sub: any) => {
     webpush.sendNotification(sub, JSON.stringify(notificationPayload));
   }));
 
