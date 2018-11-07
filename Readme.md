@@ -22,11 +22,12 @@
   }
   ```
   
-  __/api/notifications__ - GET
-  post a push subscription object (https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription)
+  __/api/notifications__ - POST
+  send a push subscription object so later on can receive push notifications 
+  (https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription)
   
   __/api/newsletter__ -POST 
-  triggers the server to send push notification to subscribers
+  triggers the server to send push notification to all the subscribers
   
 ##### Create vapid keys
 `npm install web-push -g` and run `web-push generate-vapid-keys --json` from the result extract the `publicKey` and `privateKey`
@@ -46,6 +47,7 @@ and run server with:
  run server:
  `docker run -p 9000:9000  --env WEB_PUSH_PUBLIC_KEY={publicKey} --env WEB_PUSH_PRIVATE_KEY={privateKey} -d web-app` 
 
+visit `http://localhost:9000/api/newsletters`
 
 #### client apps
 For a client app to become a subscriber of the server so it receives push notifications it needs to provide the previously created
